@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyFirstApp());
+}
+
+class MyFirstApp extends StatelessWidget {
+  const MyFirstApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.indigo,
         appBar: AppBar(
-          title: const Text("MyFirst App"),
           centerTitle: true,
+          title: Text(
+            "My First App",
+          ),
         ),
-        body: const Center(
+        body: Center(
           child: Text(
-            "This is My HomePage",
+            "Просто текст",
             style: TextStyle(
-              color: Colors.indigo,
               fontSize: 40,
               fontWeight: FontWeight.w900,
             ),
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
