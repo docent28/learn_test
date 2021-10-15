@@ -46,7 +46,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       Text(
                         "${(_progressValue * 100).round()}%",
                         style: TextStyle(
-                          fontSize: 45,
+                          fontSize: 50,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
