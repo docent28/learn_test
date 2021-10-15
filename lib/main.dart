@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyFirstApp());
+  runApp(
+    MyFirstApp(),
+  );
 }
 
 class MyFirstApp extends StatefulWidget {
@@ -32,43 +34,39 @@ class _MyFirstAppState extends State<MyFirstApp> {
         appBar: AppBar(
           backgroundColor: Colors.indigoAccent,
           centerTitle: true,
-          title: Text(
-            "My First App",
-          ),
+          title: Text("My First App"),
         ),
         body: Center(
           child: Container(
-            color: Colors.green,
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(20),
             child: _loading
                 ? Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      LinearProgressIndicator(
-                        value: _progressValue,
-                        minHeight: 20,
-                      ),
                       Text(
-                        "${(_progressValue * 100).round()} %",
+                        "${(_progressValue * 100).round()}%",
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 45,
                           fontWeight: FontWeight.w600,
+                          color: Colors.white,
                         ),
+                      ),
+                      LinearProgressIndicator(
+                        minHeight: 15,
+                        value: _progressValue,
                       ),
                     ],
                   )
                 : Text(
-                    "Press Button to download",
+                    "Нажмите на кнопку справа внизу",
                     style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.amber,
           onPressed: () {
             setState(() {
               _loading = !_loading;
@@ -82,11 +80,11 @@ class _MyFirstAppState extends State<MyFirstApp> {
   }
 
   void _updateProgress() {
-    const oneSec = const Duration(milliseconds: 100);
+    const oneSec = const Duration(seconds: 1);
     Timer.periodic(oneSec, (Timer t) {
       setState(() {
-        _progressValue += 0.01;
-        if (_progressValue.toStringAsFixed(1) == '1.0') {
+        _progressValue += 0.1;
+        if (_progressValue.toStringAsFixed(1) == "1.0") {
           _loading = false;
           t.cancel();
           _progressValue = 0.0;
