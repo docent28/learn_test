@@ -65,33 +65,58 @@ class _ChangingValueState extends State<ChangingValue> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        IconButton(
-          iconSize: 50,
-          icon: const Icon(Icons.add_circle),
-          onPressed: () {
-            setState(() {
-              _currentValue += 1;
-            });
-          },
-        ),
-        const SizedBox(width: 50),
-        Text(
-          "$_currentValue",
-          style: const TextStyle(
-            fontSize: 50,
-            fontWeight: FontWeight.w900,
-            color: Colors.indigo,
+        SizedBox(
+          width: 75,
+          height: 75,
+          child: ColoredBox(
+            color: Colors.green,
+            child: IconButton(
+              color: Colors.white,
+              iconSize: 50,
+              icon: const Icon(Icons.add_circle),
+              onPressed: () {
+                setState(() {
+                  _currentValue += 1;
+                });
+              },
+            ),
           ),
         ),
         const SizedBox(width: 50),
-        IconButton(
-          iconSize: 50,
-          icon: const Icon(Icons.remove_circle),
-          onPressed: () {
-            setState(() {
-              _currentValue -= 1;
-            });
-          },
+        SizedBox(
+          width: 150,
+          height: 75,
+          child: ColoredBox(
+            color: Colors.green,
+            child: Center(
+              child: Text(
+                "$_currentValue",
+                style: const TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.indigo,
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 50),
+        SizedBox(
+          width: 75,
+          height: 75,
+          child: ColoredBox(
+            color: Colors.green,
+            child: IconButton(
+              color: Colors.white,
+              iconSize: 50,
+              icon: const Icon(Icons.remove_circle),
+              onPressed: () {
+                setState(() {
+                  _currentValue -= 1;
+                });
+              },
+            ),
+          ),
         ),
       ],
     );
