@@ -77,7 +77,7 @@ class _ChangingValueState extends State<ChangingValue> {
         const SizedBox(width: 50),
         Text(
           "$_currentValue",
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 50,
             fontWeight: FontWeight.w900,
             color: Colors.indigo,
